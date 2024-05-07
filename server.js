@@ -28,7 +28,6 @@ const server = new http.Server(async (req, res) => {
         const url = URL.parse(req.url);
 
         let request_path = (process.argv[2] || __dirname) + decodeURI(url.pathname);
-        console.log(request_path);
         if (request_path.endsWith("/")) request_path = request_path.slice(0, -1);
 
         const request_stats = await fs.stat(request_path);
